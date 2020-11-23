@@ -13,7 +13,7 @@ a{
 }
 .container{
     width: 100%;
-    max-width: 120rem;
+    max-width: 115.2rem;
     margin: 0 auto;
     padding: 2rem;
 }
@@ -51,6 +51,7 @@ a{
 .card-group{
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -1.2rem;
 }
 .card{
     position: relative;
@@ -59,8 +60,7 @@ a{
     border-radius: 6px;
     /* background-color: #87DC9F; */
     padding: 3rem;
-    margin-right: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin: 1.2rem;
     background-color: lightgreen;
 }
 @media(max-width: 650px){
