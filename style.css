@@ -1,0 +1,53 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.container{
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
+    background-color: lightblue;
+}
+
+/* header */
+.header{
+    width: 100%;
+    /* background-color: lightcoral; */
+    height: 5rem;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 2rem;
+    border: 1px dotted gray;
+}
+.nav h1{
+    font-size: 3.2rem;
+}
+.button{
+    background-color: #F3F3F4;
+    padding: 1rem 2rem;
+    color: #363B42;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+.new-book::before{
+    content: '+';
+    margin-right: 8px;
+    font-size: 1.6rem;
+}
+
+
+
