@@ -13,16 +13,16 @@ a{
 }
 .container{
     width: 100%;
-    max-width: 115.2rem;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 113rem;
+    margin: 4rem auto;
+    padding: 4rem;
 }
 
 /* header */
 .header{
     width: 100%;
     height: 5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 .nav{
     display: flex;
@@ -40,6 +40,12 @@ a{
     font-size: 1.4rem;
     font-weight: 500;
     border-radius: 4px;
+    margin-right: 2px;
+}
+.button:hover{
+    cursor: pointer;
+    background-color: lightgreen;
+    transition: .3s;
 }
 .new-book::before{
     content: '+';
@@ -55,8 +61,8 @@ a{
 }
 .card{
     position: relative;
-    width: 26rem;
-    height: 36rem;
+    width: 24.4rem;
+    height: 32rem;
     border-radius: 6px;
     /* background-color: #87DC9F; */
     padding: 3rem;
@@ -69,6 +75,8 @@ a{
         margin: 0 auto;
     }
     .card{
+        width: 32rem;
+        height: 42.6rem;
         display: block;
         margin: 0 auto;
         margin-bottom: 2.5rem;
