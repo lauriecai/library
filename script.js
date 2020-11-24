@@ -22,36 +22,39 @@ function book(title, author, pages, read) {
 
 // selectors
 const cardGroup = document.querySelector('.card-group');
-const card = document.querySelector('.card');
+let card;
 
 // functions
-function createCard() {
-    const card = document.createElement('div');
+function createCard(i) {
+    card = document.createElement('div');
     card.classList.add('card');
     cardGroup.appendChild(card);
 }
 
+function populateCard(i) {
+    const title = document.createElement('p');
+    title.classList.add('title');
+    card.appendChild(title);
+
+    const author = document.createElement('p');
+    author.classList.add('author');
+    card.appendChild(author);
+
+    const pageCount = document.createElement('p');
+    pageCount.classList.add('page-count');
+    card.appendChild(pageCount);
+}
+
 function addBookToLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
-
         // create 'card' div
-        createCard();
+        createCard(i);
         // create 'title', 'author', and 'page-count' children elements
-        const title = document.createElement('p');
-        title.classList.add('title');
-        card.appendChild(title);
-
-        const author = document.createElement('p');
-        title.classList.add('author');
-        card.appendChild(author);
-
-        const pageCount = document.createElement('p');
-        title.classList.add('page-count');
-        card.appendChild(pageCount);
+        populateCard(i);
 
         // assign title, author, and page count
-        // document.querySelector('.title').textContent = book[i].title;
-        // document.querySelector('.author').textContent = book[i].author;
-        // document.querySelector('.title').textContent = book[i].pageCount;
+        document.querySelector('.title').textContent = myLibrary[i].title;
+        document.querySelector('.author').textContent = myLibrary[i].author;
+        document.querySelector('.page-count').textContent = myLibrary[i].pages;
     }
 }
