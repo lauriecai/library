@@ -4,7 +4,7 @@ const cardGroup = document.querySelector('.card-group');
 const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
 const author = document.getElementsByClassName('author');
-const pages = document.getElementsByClassName('page-count');
+const pages = document.getElementsByClassName('pages');
 
 // -----OBJECTS-----
 // test books
@@ -44,9 +44,9 @@ function createCard() {
     author.classList.add('author');
     card.appendChild(author);
     // add pages section
-    const pageCount = document.createElement('p');
-    pageCount.classList.add('page-count');
-    card.appendChild(pageCount);
+    const pages = document.createElement('p');
+    pages.classList.add('pages');
+    card.appendChild(pages);
 }
 
 // display book info

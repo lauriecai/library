@@ -110,3 +110,9 @@ a{
     bottom: 2.4rem;;
 }
 
+/* modal */
+.modal{
+    /* display: none; */
+    background-color: rgba(0, 0, 0, .8);
+}
+
