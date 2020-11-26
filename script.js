@@ -12,6 +12,7 @@ const modalAuthor = document.querySelector('.authorInput');
 const modalPages = document.querySelector('.pagesInput');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
+const nullState = document.querySelector('.null-state');
 
 // -----FUNCTIONS-----
 // object constructor
@@ -106,6 +107,11 @@ for (i = 0; i < addBookBtns.length; i++) {
 
 // modal > user clicks 'cancel'
 modalCancel.addEventListener('click', function() {
+    hide('.dark-overlay');
+})
+
+// modal > user clicks outside of modal
+modal.addEventListener('click', function() {
     hide('.dark-overlay');
 })
 
