@@ -44,8 +44,8 @@ a{
 }
 .button:hover{
     cursor: pointer;
-    background-color: lightgreen;
-    transition: .3s;
+    background-color: rgb(93, 158, 255);
+    color: white;
 }
 .new-book::before{
     content: '+';
@@ -67,7 +67,7 @@ a{
     /* background-color: #87DC9F; */
     padding: 3rem;
     margin: 1.2rem;
-    background-color: lightgreen;
+    background-color: #F3F3F4;
 }
 @media(max-width: 650px){
     .card-group{
@@ -103,7 +103,7 @@ a{
     font-weight: 700;
     letter-spacing: .5px; 
 }
-.page-count{
+.pages{
     position: absolute;
     font-size: 1.4rem;
     font-weight: 400;
@@ -111,8 +111,98 @@ a{
 }
 
 /* modal */
-.modal{
+.dark-overlay{
     /* display: none; */
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .95);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 2rem;
 }
-
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 50rem;
+    padding: 4rem;
+    border-radius: 6px;
+}
+.modal-content{
+    margin-bottom: 4rem;
+}
+.modal-heading{
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+.modal-subtext{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #a3a6ae;
+}
+.custom-field{
+    display: block;
+    position: relative;
+    font-size: 1.4rem;
+    padding-top: 2rem;
+    margin: 2rem 0;
+}
+input{
+    outline: none;
+    appearance: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: none;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+input + .placeholder{
+    position: absolute;
+    font-size: 1.6rem;
+    color: #a3a6ae;
+    left: 14px;
+    top: 50%;
+    transition: 
+        top 0.3s ease,
+        color 0.3s ease,
+        font-size 0.3s ease;
+}
+input:focus + .placeholder, input:valid + .placeholder{
+    top: 1.4rem;
+    font-size: 1.2rem;
+    background: white;
+    padding: 0 6px;
+    margin-left: -3px;
+}
+input:valid + .placeholder{
+    color: black;
+}
+input:focus + .placeholder{
+    color: rgb(93, 158, 255);
+}
+input:valid{
+    border-color: #222;
+    transition-delay: 0.2s
+}
+input:focus{
+    border-color: rgb(93, 158, 255);
+    transition-delay: 0.2s
+}
+.modal-footer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.modal-footer .button{
+    padding: 1.6rem 2.4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
