@@ -10,24 +10,37 @@
 </head>
 <body>
     <div class="container">
+        <!-- header -->
         <div class="header">
             <div class="nav">
                 <h1>Library</h1>
-                <div class="button">
+                <div class="button button-top-right">
                     <p class="new-book">Add Book</p>
                 </div>
             </div>
         </div>
         <main class="main">
+            <!-- card group -->
             <div class="card-group">
+                <!-- book0 -->
+                <!-- book1 -->
+                <!-- book2 -->
+            </div>
+            <!-- null state -->
+            <div class="null-state">
+                <h2 class="null-header">You don't have any books...</h2>
+                <p class="null-subtext">Add them here so you can keep track of your progress in one place.</p>
+                <div class="button">
+                    <p class="new-book">Add Book</p>
+                </div>
             </div>
         </main>
     </div>
+    <!-- modal -->
     <div class="dark-overlay">
         <div class="modal">
             <div class="modal-header">
                 <h3 class="modal-heading">Add Book</h3>
-                <p class="modal-subtext">Newly added books will be marked as unread.</p>
             </div>
             <div class="modal-content">
                 <label class="custom-field">
@@ -44,7 +57,10 @@
                 </label>
             </div>
             <div class="modal-footer">
-                <div class="button">
+                <div class="button cancel-btn">
+                    <p class="cancel">Cancel</p>
+                </div>
+                <div class="button add-btn">
                     <p class="add-book">Add Book</p>
                 </div>
             </div>
@@ -53,8 +69,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-<!-- <label for="name">Name (4 to 8 characters):</label>
-
-<input type="text" id="name" name="name" required
-       minlength="4" maxlength="8" size="10"> -->

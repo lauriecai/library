@@ -12,6 +12,7 @@ a{
     color: inherit;
 }
 .container{
+    position: relative;
     width: 100%;
     max-width: 113rem;
     margin: 4rem auto;
@@ -34,23 +35,50 @@ a{
     font-size: 3.2rem;
 }
 .button{
-    background-color: #F3F3F4;
-    padding: 1rem 2rem;
-    color: #363B42;
-    font-size: 1.4rem;
+    margin-right: 2px;
+    background-color: rgb(93, 158, 255);
+    color: white;
+    padding: 1.4rem 2.2rem;
+    font-size: 1.6rem;
     font-weight: 500;
     border-radius: 4px;
-    margin-right: 2px;
+    display: inline-block;
 }
 .button:hover{
     cursor: pointer;
-    background-color: rgb(93, 158, 255);
-    color: white;
+}
+.button-top-right{ /* toggle this */
+    display: none;
 }
 .new-book::before{
     content: '+';
     margin-right: 8px;
     font-size: 1.6rem;
+}
+
+/* null state */
+.null-state{
+    /* display: none; */ /* toggle this */
+    text-align: center;
+    margin-top: 10rem;
+}
+.null-state::before{
+    content: url(https://media2.giphy.com/media/wsiSPSA7ijqwM/giphy.gif?cid=ecf05e47c5gqbh1ccl3ic9ubgxhmys65dmlpwcllc5vr653r&rid=giphy.gif);
+    display: block;
+    margin-bottom: 4rem;
+}
+.null-header{
+    font-size: 2rem;
+    color: #4f4f4f;
+    margin-bottom: 1.2rem;
+}
+.null-subtext{
+    font-size: 1.6rem;
+    color: rgb(171, 171, 171);
+    margin: auto;
+    margin-bottom: 4.5rem;
+    width: 35rem;
+    line-height: 2.4rem;
 }
 
 /* main */
@@ -64,7 +92,6 @@ a{
     width: 24.4rem;
     height: 32rem;
     border-radius: 6px;
-    /* background-color: #87DC9F; */
     padding: 3rem;
     margin: 1.2rem;
     background-color: #F3F3F4;
@@ -112,7 +139,7 @@ a{
 
 /* modal */
 .dark-overlay{
-    /* display: none; */
+    display: none; /* toggle this */
     background-color: rgba(0, 0, 0, .95);
     position: absolute;
     top: 0;
@@ -128,7 +155,7 @@ a{
     transform: translate(-50%, -50%);
     background-color: white;
     width: 50rem;
-    padding: 4rem;
+    padding: 3rem;
     border-radius: 6px;
 }
 .modal-content{
@@ -138,11 +165,6 @@ a{
     font-size: 2.4rem;
     font-weight: 700;
     margin-bottom: .5rem;
-}
-.modal-subtext{
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #a3a6ae;
 }
 .custom-field{
     display: block;
@@ -201,8 +223,15 @@ input:focus{
     width: 100%;
 }
 .modal-footer .button{
-    padding: 1.6rem 2.4rem;
+    padding: 1.4rem 2.2rem;
     font-size: 1.6rem;
     font-weight: 500;
     border-radius: 4px;
+}
+.cancel-btn{
+    margin-right: 1rem;
+}
+.add-btn{
+    background-color: rgb(93, 158, 255);
+    color: white;
 }

@@ -10,7 +10,10 @@ const pages = document.getElementsByClassName('pages');
 // test books
 const book0 = new book('The Life-Changing Magic of Tidying Up', 'Marie Kondo', '226 Pages');
 const book1 = new book('Harry Potter and the Chamber of Secrets','J.K. Rowling', '341 Pages')
-myLibrary.push(book0, book1);
+const book2 = new book('The Making of a Manager', 'Julie Zhuo', '288 Pages')
+const book3 = new book('Becoming', 'Michelle Obama', '448 Pages')
+const book4 = new book('A Promised Land', 'Barack Obama', '768 Pages')
+myLibrary.push(book0, book1, book2, book3, book4);
 
 // -----FUNCTIONS-----
 // object constructor
@@ -50,18 +53,34 @@ function createCard() {
 }
 
 // display book info
-function displayBookInfo(book) {
+function populateBookInfo(book) {
     title[book].textContent = myLibrary[book].title;
     author[book].textContent = myLibrary[book].author;
     pages[book].textContent = myLibrary[book].pages;
 }
 
+// toggle off
+function hide(classname) {
+    document.querySelector(classname).style.display = 'none';
+}
+
+// toggle on
+function show(classname) {
+    document.querySelector(classname).style.display = 'inline-block';
+}
+
+// generate library
+function generateLibrary() {
+    for (i = 0; i < myLibrary.length; i++) {
+        createCard();
+        populateBookInfo(i);
+        // show button top right
+        show('.button-top-right');
+    }
+}
+
 // -----FLOW-----
 
-for (i = 0; i < myLibrary.length; i++) {
-    createCard();
-    displayBookInfo(i);
-}
 
 
 
