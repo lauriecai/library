@@ -7,7 +7,10 @@ const author = document.getElementsByClassName('author');
 const pages = document.getElementsByClassName('pages');
 const addBook = document.querySelector('#add-btn-1');
 const modal = document.querySelector('.dark-overlay');
-const modalCancel = document.querySelector('.cancel-btn')
+const modalTitle = document.querySelector('.titleInput');
+const modalAuthor = document.querySelector('.authorInput');
+const modalPages = document.querySelector('.pagesInput');
+const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('#add-btn-2');
 
 // -----OBJECTS-----
@@ -34,6 +37,15 @@ function book(title, author, pages, read) {
             return (`${title} by ${author}, ${pages} pages, not read yet`);
         }
     }
+}
+
+// collect book info
+function collectBookInfo() {
+    // create new bookvar: let 'book' + `${myLibrary.length}`
+    let bookvar = 'book' + `${myLibrary.length}`;
+    bookvar = new book(`${modalTitle.value}`, `${modalAuthor.value}`, `${modalPages.value}`);
+    // add new book to array
+    myLibrary.push(bookvar);
 }
 
 // create card
@@ -95,5 +107,9 @@ modalCancel.addEventListener('click', function() {
 
 // modal > user clicks 'add book'
 modalAdd.addEventListener('click', function() {
-    
+    // check if title, author, and number of pages are all valid
+    // if not, return error
+    // if yes, collect book info:
+        
+
 })
