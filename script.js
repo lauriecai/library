@@ -13,7 +13,7 @@ const modalPages = document.querySelector('.pagesInput');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
-const remove = document.getElementById('remove');
+const removeCollection = document.getElementsByClassName('link');
 
 // -----FUNCTIONS-----
 // object constructor
@@ -49,7 +49,7 @@ function addBook() {
     // reset values
     modalTitle.value = '';
     modalAuthor.value = '';
-    modalPages.value = ''
+    modalPages.value = '';
 }
 
 // create card
@@ -77,9 +77,11 @@ function createCard() {
     // add remove within footer
     const remove = document.createElement('p');
     remove.classList.add('link');
-    remove.setAttribute('id', 'Remove');
     remove.textContent = 'Remove';
     footer.appendChild(remove);
+    remove.addEventListener('click', function() {
+        console.log('I am book' + removeCollection.length);
+    })
 }
 
 // display book info
@@ -130,3 +132,11 @@ modal.addEventListener('click', function() {
 modalAdd.addEventListener('click', function() {
     addBook();
 })
+
+// removing a book
+// for (i = 0; i < removeCollection.length; i++) {
+//     console.log(removeCollection.length);
+//     // removeCollection[i].addEventListener('click', function() {
+//     //     console.log('hi');
+//     // })
+// }
