@@ -74,44 +74,20 @@ function generateLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
         createCard();
         populateBookInfo(i);
-        // show button top right
         show('.button-top-right');
     }
 }
 
 // -----FLOW-----
+// user clicks add book
+let addBook = document.querySelector('#add-btn-1');
+let modal = document.querySelector('.dark-overlay');
 
+addBook.addEventListener('click', function() {
+    modal.style.display = 'block';
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     for (i = 0; i < myLibrary.length; i++) {
-//         // create 'card' div
-//         createCard();
-//         // create 'title', 'author', and 'page-count' children elements
-//         populateCard();
-
-//         // assign title, author, and page count
-//         document.querySelector('.title').textContent = myLibrary[i].title;
-//         document.querySelector('.author').textContent = myLibrary[i].author;
-//         document.querySelector('.page-count').textContent = myLibrary[i].pages;
-//     }
+let text = document.querySelector('.null-header');
+text.addEventListener('click', function() {
+    modal.style.display = 'block';
+})
