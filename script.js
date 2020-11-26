@@ -13,6 +13,7 @@ const modalPages = document.querySelector('.pagesInput');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
+const remove = document.getElementById('remove');
 
 // -----FUNCTIONS-----
 // object constructor
@@ -65,17 +66,27 @@ function createCard() {
     const author = document.createElement('p');
     author.classList.add('author');
     card.appendChild(author);
-    // add pages section
+    // add footer div
+    const footer = document.createElement('div');
+    footer.classList.add('book-footer');
+    card.appendChild(footer);
+    // add pages within footer
     const pages = document.createElement('p');
     pages.classList.add('pages');
-    card.appendChild(pages);
+    footer.appendChild(pages);
+    // add remove within footer
+    const remove = document.createElement('p');
+    remove.classList.add('link');
+    remove.setAttribute('id', 'Remove');
+    remove.textContent = 'Remove';
+    footer.appendChild(remove);
 }
 
 // display book info
 function populateBookInfo(book) {
     title[book].textContent = myLibrary[book].title;
     author[book].textContent = myLibrary[book].author;
-    pages[book].textContent = myLibrary[book].pages;
+    pages[book].textContent = myLibrary[book].pages + ' Pages';
 }
 
 // toggle off
