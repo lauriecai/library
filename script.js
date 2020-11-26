@@ -5,6 +5,10 @@ const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
 const author = document.getElementsByClassName('author');
 const pages = document.getElementsByClassName('pages');
+const addBook = document.querySelector('#add-btn-1');
+const modal = document.querySelector('.dark-overlay');
+const modalCancel = document.querySelector('.cancel-btn')
+const modalAdd = document.querySelector('#add-btn-2');
 
 // -----OBJECTS-----
 // test books
@@ -79,15 +83,17 @@ function generateLibrary() {
 }
 
 // -----FLOW-----
-// user clicks add book
-let addBook = document.querySelector('#add-btn-1');
-let modal = document.querySelector('.dark-overlay');
-
+// user clicks add book > show modal
 addBook.addEventListener('click', function() {
     modal.style.display = 'block';
 })
 
-let text = document.querySelector('.null-header');
-text.addEventListener('click', function() {
-    modal.style.display = 'block';
+// modal > user clicks 'cancel'
+modalCancel.addEventListener('click', function() {
+    hide('.dark-overlay');
+})
+
+// modal > user clicks 'add book'
+modalAdd.addEventListener('click', function() {
+    
 })
