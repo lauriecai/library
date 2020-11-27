@@ -139,10 +139,10 @@ a{
     position: absolute;
     bottom: 3rem;
 }
-.link{
+.remove{
     text-decoration: underline;
 }
-.link:hover{
+.remove:hover{
     cursor: pointer;
 }
 

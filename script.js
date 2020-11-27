@@ -13,7 +13,6 @@ const modalPages = document.querySelector('.pagesInput');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
-const removeCollection = document.getElementsByClassName('link');
 
 // -----FUNCTIONS-----
 // object constructor
@@ -52,6 +51,21 @@ function addBook() {
     modalPages.value = '';
 }
 
+// generate library
+function generateLibrary() {
+    for (i = 0; i < myLibrary.length; i++) {
+        displayBookInfo(i);
+    }
+    show('.button-top-right');
+}
+
+// display book info
+function displayBookInfo(book) {
+    title[book].textContent = myLibrary[book].title;
+    author[book].textContent = myLibrary[book].author;
+    pages[book].textContent = myLibrary[book].pages + ' Pages';
+}
+
 // create card
 function createCard() {
     // card background
@@ -76,19 +90,19 @@ function createCard() {
     footer.appendChild(pages);
     // add remove within footer
     const remove = document.createElement('p');
-    remove.classList.add('link');
+    remove.classList.add('remove');
     remove.textContent = 'Remove';
     footer.appendChild(remove);
-    remove.addEventListener('click', function() {
-        console.log('I am book' + removeCollection.length);
-    })
 }
 
-// display book info
-function populateBookInfo(book) {
-    title[book].textContent = myLibrary[book].title;
-    author[book].textContent = myLibrary[book].author;
-    pages[book].textContent = myLibrary[book].pages + ' Pages';
+cardGroup.addEventListener('click', removeCard);
+
+function removeCard(e) {
+    if (e.target.classList.contains('remove')) {
+        console.log(e.target.parentElement.parentElement);
+        let card = e.target.parentElement.parentElement;
+        cardGroup.removeChild(card);
+    }
 }
 
 // toggle off
@@ -99,14 +113,6 @@ function hide(classname) {
 // toggle on
 function show(classname) {
     document.querySelector(classname).style.display = 'inline-block';
-}
-
-// generate library
-function generateLibrary() {
-    for (i = 0; i < myLibrary.length; i++) {
-        populateBookInfo(i);
-        show('.button-top-right');
-    }
 }
 
 // -----FLOW-----
@@ -132,11 +138,3 @@ modal.addEventListener('click', function() {
 modalAdd.addEventListener('click', function() {
     addBook();
 })
-
-// removing a book
-// for (i = 0; i < removeCollection.length; i++) {
-//     console.log(removeCollection.length);
-//     // removeCollection[i].addEventListener('click', function() {
-//     //     console.log('hi');
-//     // })
-// }
