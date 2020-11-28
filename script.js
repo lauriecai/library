@@ -1,5 +1,6 @@
 // -----SELECTORS & VARIABLES-----
 let myLibrary = [];
+let data = 0;
 const cardGroup = document.querySelector('.card-group');
 const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
@@ -16,17 +17,16 @@ const nullState = document.querySelector('.null-state');
 
 // -----FUNCTIONS-----
 // object constructor
-function book(title, author, pages, read) {
+function book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
     this.info = function() {
         if (read) {
-            return (`${title} by ${author}, ${pages} pages, already read`);
+            return (`${title} by ${author}, ${pages} pages`);
         } else {
             // it's best to return things rather than putting console.log() directly into the function!
-            return (`${title} by ${author}, ${pages} pages, not read yet`);
+            return (`${title} by ${author}, ${pages} pages`);
         }
     }
 }
@@ -93,15 +93,18 @@ function createCard() {
     remove.classList.add('remove');
     remove.textContent = 'Remove';
     footer.appendChild(remove);
+    remove.setAttribute('data', data);
+    data += 1;
 }
 
 cardGroup.addEventListener('click', removeCard);
 
 function removeCard(e) {
     if (e.target.classList.contains('remove')) {
-        console.log(e.target.parentElement.parentElement);
         let card = e.target.parentElement.parentElement;
         cardGroup.removeChild(card);
+        console.log('card removed!');
+        console.log(e);
     }
 }
 
