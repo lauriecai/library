@@ -21,14 +21,6 @@ function book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.info = function() {
-        if (read) {
-            return (`${title} by ${author}, ${pages} pages`);
-        } else {
-            // it's best to return things rather than putting console.log() directly into the function!
-            return (`${title} by ${author}, ${pages} pages`);
-        }
-    }
 }
 
 // collect book info
@@ -42,6 +34,41 @@ function addBook() {
     myLibrary.push(bookvar);
     // generate updated library
     generateLibrary();
+    // test: log remove button
+    console.log(removeLinks);
+    // test: add event listener to remove button
+
+}
+
+// test: remove
+var removeLinks = document.getElementsByClassName('remove');
+
+
+
+
+function removeBook(e) {
+    console.log(e.type);
+    // which index of remove was clicked?
+    // remove book of same index from library
+    // generate updated library
+    // close modal
+    // reset valeus
+}
+
+// function removeCard(e) {
+    //     if (e.target.classList.contains('remove')) {
+    //         let card = e.target.parentElement.parentElement;
+    //         cardGroup.removeChild(card);
+    //         console.log('card removed!');
+    //         console.log(e);
+    //     }
+    // }
+
+// generate library
+function generateLibrary() {
+    for (i = 0; i < myLibrary.length; i++) {
+        displayBookInfo(i);
+    }
     // close modal
     hide('.dark-overlay');
     hide('.null-state')
@@ -49,13 +76,7 @@ function addBook() {
     modalTitle.value = '';
     modalAuthor.value = '';
     modalPages.value = '';
-}
-
-// generate library
-function generateLibrary() {
-    for (i = 0; i < myLibrary.length; i++) {
-        displayBookInfo(i);
-    }
+    // show button
     show('.button-top-right');
 }
 
@@ -93,19 +114,7 @@ function createCard() {
     remove.classList.add('remove');
     remove.textContent = 'Remove';
     footer.appendChild(remove);
-    remove.setAttribute('data', data);
-    data += 1;
-}
-
-cardGroup.addEventListener('click', removeCard);
-
-function removeCard(e) {
-    if (e.target.classList.contains('remove')) {
-        let card = e.target.parentElement.parentElement;
-        cardGroup.removeChild(card);
-        console.log('card removed!');
-        console.log(e);
-    }
+    remove.addEventListener('click', removeBook);
 }
 
 // toggle off
