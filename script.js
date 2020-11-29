@@ -1,6 +1,8 @@
 // -----SELECTORS & VARIABLES-----
 let myLibrary = [];
 let data = 0;
+let counter = 0;
+let inputId = 'read-state-'+counter;
 const cardGroup = document.querySelector('.card-group');
 const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
@@ -95,12 +97,13 @@ function createCard() {
     // add checkbox and label within status
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.setAttribute('id', 'read-state');
+    checkbox.setAttribute('id', `${inputId}`);
     status.appendChild(checkbox);
     const label = document.createElement('label');
-    label.setAttribute('for', 'read-state');
+    label.setAttribute('for', `${inputId}`);
     label.textContent = "I've Read This";
     status.appendChild(label);
+    inputId += 1;
     // add title section
     const title = document.createElement('p');
     title.classList.add('title');
