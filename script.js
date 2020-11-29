@@ -34,35 +34,39 @@ function addBook() {
     myLibrary.push(bookvar);
     // generate updated library
     generateLibrary();
-    // test: log remove button
-    console.log(removeLinks);
-    // test: add event listener to remove button
-
 }
 
 // test: remove
 var removeLinks = document.getElementsByClassName('remove');
 
-
-
-
 function removeBook(e) {
-    console.log(e.type);
-    // which index of remove was clicked?
-    // remove book of same index from library
-    // generate updated library
-    // close modal
-    // reset valeus
+    // find index of book from which user clicked 'remove'
+    let removeIndex = e.target.getAttribute('data');
+    // remove that index from library
+    myLibrary.splice(removeIndex, 1);
+    // remove card from frontend
+    let card = e.target.parentElement.parentElement;
+    cardGroup.removeChild(card);
+    // reassign data attributes
+    data = 0;
+    for (i = 0; i < removeLinks.length; i++) {
+        removeLinks[i].setAttribute('data', data);
+        data += 1;
+    }
+    // summary
+    console.log('----- updated -----')
+    console.log(myLibrary);
+    console.log(removeLinks);
 }
 
-// function removeCard(e) {
-    //     if (e.target.classList.contains('remove')) {
-    //         let card = e.target.parentElement.parentElement;
-    //         cardGroup.removeChild(card);
-    //         console.log('card removed!');
-    //         console.log(e);
-    //     }
-    // }
+function removeCard(e) {
+        if (e.target.classList.contains('remove')) {
+            let card = e.target.parentElement.parentElement;
+            cardGroup.removeChild(card);
+            console.log('card removed!');
+            console.log(e);
+        }
+    }
 
 // generate library
 function generateLibrary() {
@@ -113,6 +117,8 @@ function createCard() {
     const remove = document.createElement('p');
     remove.classList.add('remove');
     remove.textContent = 'Remove';
+    remove.setAttribute('data', data);
+    data += 1;
     footer.appendChild(remove);
     remove.addEventListener('click', removeBook);
 }
