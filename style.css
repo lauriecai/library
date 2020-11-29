@@ -155,6 +155,7 @@ label{
 }
 .modal .status{
     border: none;
+    margin-top: 3rem;
 }
 .modal input[type='checkbox']{
     appearance: none;
