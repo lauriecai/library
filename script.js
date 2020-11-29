@@ -14,6 +14,7 @@ const modalPages = document.querySelector('.pagesInput');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
+const removeLinks = document.getElementsByClassName('remove');
 
 // -----FUNCTIONS-----
 // object constructor
@@ -36,9 +37,6 @@ function addBook() {
     generateLibrary();
 }
 
-// test: remove
-var removeLinks = document.getElementsByClassName('remove');
-
 function removeBook(e) {
     // find index of book from which user clicked 'remove'
     let removeIndex = e.target.getAttribute('data');
@@ -53,20 +51,13 @@ function removeBook(e) {
         removeLinks[i].setAttribute('data', data);
         data += 1;
     }
+    // display null state if library's empty
+    checkNullState();
     // summary
     console.log('----- updated -----')
     console.log(myLibrary);
     console.log(removeLinks);
 }
-
-function removeCard(e) {
-        if (e.target.classList.contains('remove')) {
-            let card = e.target.parentElement.parentElement;
-            cardGroup.removeChild(card);
-            console.log('card removed!');
-            console.log(e);
-        }
-    }
 
 // generate library
 function generateLibrary() {
@@ -131,6 +122,14 @@ function hide(classname) {
 // toggle on
 function show(classname) {
     document.querySelector(classname).style.display = 'inline-block';
+}
+
+// check if library is empty
+function checkNullState() {
+    if (myLibrary.length == 0) {
+        nullState.style.display = 'block';
+        show('.button-top-right');
+    } 
 }
 
 // -----FLOW-----
