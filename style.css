@@ -115,14 +115,15 @@ a{
     }
 }
 .status{
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
     display: flex;
     align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgb(211, 213, 218);
 }
 input[type='checkbox']{
     appearance: none;
-    /* background-color: #d5d5d5; */
-    background-color: rgb(48, 49, 51);
+    background-color: rgb(211, 213, 218);
     height: 1.8rem;
     width: 1.8rem;
     border-radius: 4px;
@@ -137,13 +138,10 @@ input[type='checkbox']::after{
     content: '\f00c';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    color: white;
+    color: hsl(216, 2%, 60%);
     font-size: 1.2rem;
     margin-left: 1px;
     display: none;
-}
-input[type='checkbox']:hover{
-    background-color: rgb(67, 68, 70);
 }
 input[type='checkbox']:checked::after{
     display: block;
@@ -151,8 +149,11 @@ input[type='checkbox']:checked::after{
 label{
     font-size: 1.4rem;
     font-weight: 700;
-    color: rgb(48, 49, 51);
+    color: rgb(179, 180, 184);
     cursor: pointer;
+}
+label:hover{
+    color: rgb(95, 96, 99);
 }
 .title{
     font-size: 2.2rem;
