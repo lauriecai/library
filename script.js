@@ -146,10 +146,13 @@ modalCancel.addEventListener('click', function() {
     hide('.dark-overlay');
 })
 
-// modal > user clicks outside of modal
-modal.addEventListener('click', function() {
-    hide('.dark-overlay');
-})
+window.addEventListener('click', outsideClick);
+
+function outsideClick(e) {
+    if (e.target == modal) {
+        hide('.dark-overlay');
+    }
+}
 
 // modal > user clicks 'add book'
 modalAdd.addEventListener('click', function() {
