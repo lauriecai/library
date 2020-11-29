@@ -153,6 +153,29 @@ label{
     color: rgb(179, 180, 184);
     cursor: pointer;
 }
+.modal .status{
+    border: none;
+}
+.modal input[type='checkbox']{
+    appearance: none;
+    background-color: #ddd;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal label{
+    font-size: 1.6rem;
+    color: black;
+}
+.modal input[type='checkbox']::after{
+    color: black;
+}
 .title{
     font-size: 2.2rem;
     font-weight: 900;
@@ -212,7 +235,7 @@ label{
     border-radius: 6px;
 }
 .modal-content{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 .modal-heading{
     font-size: 2.4rem;
