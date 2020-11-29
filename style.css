@@ -60,6 +60,7 @@ a{
 .null-state{
     display: none;
     text-align: center;
+    margin: 0 auto;
     margin-top: 10rem;
 }
 .null-state::before{
