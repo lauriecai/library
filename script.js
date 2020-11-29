@@ -128,11 +128,14 @@ function show(classname) {
 function checkNullState() {
     if (myLibrary.length == 0) {
         nullState.style.display = 'block';
-        show('.button-top-right');
+        hide('.button-top-right');
     } 
 }
 
 // -----FLOW-----
+// check state
+checkNullState();
+
 // add event listeners to all add book buttons
 for (i = 0; i < addBookBtns.length; i++) {
     addBookBtns[i].addEventListener('click', function() {

@@ -58,6 +58,7 @@ a{
 
 /* null state */
 .null-state{
+    display: none;
     text-align: center;
     margin-top: 10rem;
 }
