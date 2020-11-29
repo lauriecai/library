@@ -182,7 +182,7 @@ a{
     padding-top: 2rem;
     margin: 2rem 0;
 }
-input{
+input[type='text']{
     outline: none;
     appearance: none;
     width: 100%;
@@ -194,7 +194,7 @@ input{
     border: 2px solid #ddd;
     transition: border-color 0.3s ease;
 }
-input + .placeholder{
+input[type='text'] + .placeholder{
     position: absolute;
     font-size: 1.6rem;
     color: #a3a6ae;
