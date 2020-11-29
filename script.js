@@ -88,6 +88,20 @@ function createCard() {
     const card = document.createElement('div');
     card.classList.add('card');
     cardGroup.appendChild(card);
+
+    // add status section
+    const status = document.createElement('div');
+    status.classList.add('status');
+    card.appendChild(status);
+    // add checkbox and label within status
+    const checkbox = document.createElement('input');
+    checkbox.className = 'read-state';
+    checkbox.type = 'checkbox';
+    status.appendChild(checkbox);
+    const label = document.createElement('label');
+    label.setAttribute('for', 'read-state');
+    label.textContent = "I've Read This";
+    status.appendChild(label);
     // add title section
     const title = document.createElement('p');
     title.classList.add('title');
