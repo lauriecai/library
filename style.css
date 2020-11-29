@@ -114,21 +114,64 @@ a{
         justify-content: start;
     }
 }
+.status{
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+input[type='checkbox']{
+    appearance: none;
+    /* background-color: #d5d5d5; */
+    background-color: rgb(48, 49, 51);
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 6px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type='checkbox']::after{
+    content: '\f00c';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 1px;
+    display: none;
+}
+input[type='checkbox']:hover{
+    background-color: rgb(67, 68, 70);
+}
+input[type='checkbox']:checked::after{
+    display: block;
+}
+label{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: rgb(48, 49, 51);
+    cursor: pointer;
+}
 .title{
     font-size: 2.2rem;
     font-weight: 900;
     letter-spacing: .5px;
+    color: rgb(48, 49, 51);
 }
 .title::after{
     content: '__';
     display: block;
     font-weight: 400;
     margin-bottom: 2rem;
+    color: rgb(48, 49, 51);
 }
 .author{
     font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: .5px; 
+    color: rgb(48, 49, 51);
 }
 .book-footer{
     width: 18.4rem;
@@ -138,6 +181,7 @@ a{
     font-weight: 400;
     position: absolute;
     bottom: 3rem;
+    color: rgb(48, 49, 51);
 }
 .remove{
     text-decoration: underline;
@@ -214,7 +258,7 @@ input:focus + .placeholder, input:valid + .placeholder{
     margin-left: -3px;
 }
 input:valid + .placeholder{
-    color: black;
+    color: rgb(48, 49, 51);
 }
 input:focus + .placeholder{
     color: rgb(93, 158, 255);
@@ -241,7 +285,7 @@ input:focus{
 .cancel-btn{
     margin-right: 1rem;
     background-color: #F3F3F4;
-    color: black;
+    color: rgb(48, 49, 51);
 }
 #add-btn-1, #add-btn-2, #add-btn-3{
     background-color: rgb(93, 158, 255);
