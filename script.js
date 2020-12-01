@@ -7,12 +7,15 @@ const cardGroup = document.querySelector('.card-group');
 const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
 const author = document.getElementsByClassName('author');
+const readState = document.getElementsByClassName('read-state-display');
 const pages = document.getElementsByClassName('pages');
 const addBookBtns = document.querySelectorAll('.add-btn');
 const modal = document.querySelector('.dark-overlay');
 const modalTitle = document.querySelector('.titleInput');
 const modalAuthor = document.querySelector('.authorInput');
 const modalPages = document.querySelector('.pagesInput');
+const modalCheckbox = document.getElementById('read-state');
+// const bookCheckbox = document.getElementById('');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
@@ -20,10 +23,11 @@ const removeLinks = document.getElementsByClassName('remove');
 
 // -----FUNCTIONS-----
 // object constructor
-function book(title, author, pages) {
+function book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = modalCheckbox.checked;
 }
 
 // collect book info
@@ -32,7 +36,7 @@ function addBook() {
     createCard();
     // create new bookvar: let 'book' + `${myLibrary.length}`
     let bookvar = 'book' + `${myLibrary.length}`;
-    bookvar = new book(`${modalTitle.value}`, `${modalAuthor.value}`, `${modalPages.value}`);
+    bookvar = new book(`${modalTitle.value}`, `${modalAuthor.value}`, `${modalPages.value}`, `${modalCheckbox.checked}`);
     // add new book to array
     myLibrary.push(bookvar);
     // generate updated library
@@ -82,6 +86,7 @@ function displayBookInfo(book) {
     title[book].textContent = myLibrary[book].title;
     author[book].textContent = myLibrary[book].author;
     pages[book].textContent = myLibrary[book].pages + ' Pages';
+
 }
 
 // create card
