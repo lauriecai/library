@@ -2,7 +2,6 @@
 let myLibrary = [];
 let data = 0;
 let counter = 0;
-let inputId = 'read-state-'+counter;
 const cardGroup = document.querySelector('.card-group');
 const cards = document.getElementsByClassName('card');
 const title = document.getElementsByClassName('title');
@@ -44,7 +43,7 @@ function addBook() {
 
 function removeBook(e) {
     // find index of book from which user clicked 'remove'
-    let removeIndex = e.target.getAttribute('data');
+    let removeIndex = e.target.parentNode.parentNode.getAttribute('data');
     // remove that index from library
     myLibrary.splice(removeIndex, 1);
     // remove card from frontend
@@ -64,6 +63,19 @@ function removeBook(e) {
     console.log(removeLinks);
 }
 
+function updateReadStatus(e) {
+    if (e.target.classList.contains('checkbox')) {
+        let updateIndex = e.target.parentNode.parentNode.getAttribute('data');
+        if (e.target.checked == true) {
+            myLibrary[updateIndex].read = true;
+            
+        }
+        if (e.target.checked == false) {
+            myLibrary[updateIndex].read = false;
+        }
+    }
+}
+
 // generate library
 function generateLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
@@ -76,6 +88,7 @@ function generateLibrary() {
     modalTitle.value = '';
     modalAuthor.value = '';
     modalPages.value = '';
+    modalCheckbox.checked = false;
     // show button
     show('.button-top-right');
 }
@@ -86,7 +99,7 @@ function displayBookInfo(book) {
     author[book].textContent = myLibrary[book].author;
     pages[book].textContent = myLibrary[book].pages + ' Pages';
     if (myLibrary[book].read == true) {
-        document.getElementById('read-state-'+`${book}`).checked = true
+        document.getElementById('read-state-'+`${book}`).checked = true;
     }
 }
 
@@ -95,21 +108,26 @@ function createCard() {
     // card background
     const card = document.createElement('div');
     card.classList.add('card');
+    card.setAttribute('data', data);
+    data += 1;
     cardGroup.appendChild(card);
     // add status section
     const status = document.createElement('div');
     status.classList.add('status');
     card.appendChild(status);
+    status.addEventListener('click', updateReadStatus);
     // add checkbox and label within status
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    checkbox.className = 'checkbox';
+    let inputId = 'read-state-' + counter;
     checkbox.setAttribute('id', `${inputId}`);
     status.appendChild(checkbox);
     const label = document.createElement('label');
     label.setAttribute('for', `${inputId}`);
     label.textContent = "I've Read This";
     status.appendChild(label);
-    inputId += 1;
+    counter += 1;
     // add title section
     const title = document.createElement('p');
     title.classList.add('title');
@@ -130,8 +148,8 @@ function createCard() {
     const remove = document.createElement('p');
     remove.classList.add('remove');
     remove.textContent = 'Remove';
-    remove.setAttribute('data', data);
-    data += 1;
+    // remove.setAttribute('data', data);
+    // data += 1;
     footer.appendChild(remove);
     remove.addEventListener('click', removeBook);
 }
