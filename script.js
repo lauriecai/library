@@ -15,7 +15,6 @@ const modalTitle = document.querySelector('.titleInput');
 const modalAuthor = document.querySelector('.authorInput');
 const modalPages = document.querySelector('.pagesInput');
 const modalCheckbox = document.getElementById('read-state');
-// const bookCheckbox = document.getElementById('');
 const modalCancel = document.querySelector('.cancel-btn');
 const modalAdd = document.querySelector('.add-confirm-btn');
 const nullState = document.querySelector('.null-state');
@@ -86,7 +85,9 @@ function displayBookInfo(book) {
     title[book].textContent = myLibrary[book].title;
     author[book].textContent = myLibrary[book].author;
     pages[book].textContent = myLibrary[book].pages + ' Pages';
-
+    if (myLibrary[book].read == true) {
+        document.getElementById('read-state-'+`${book}`).checked = true
+    }
 }
 
 // create card
