@@ -15,20 +15,23 @@
         <div class="header">
             <div class="nav">
                 <h1 id="header">Library</h1>
-                <div class="button button-top-right add-btn" id="add-btn-1">
+                <div class="button add-btn" id="add-btn-main">
                     <p class="new-book">Add Book</p>
                 </div>
             </div>
         </div>
+        <!-- main -->
         <main class="main">
             <!-- card group -->
             <div class="card-group" id="card-group">
-                <!-- books go here! -->
+                <!-- book 1 -->
+                <!-- book 2 -->
+            </div>
             <!-- null state -->
             <div class="null-state">
                 <h2 class="null-header">You don't have any books...</h2>
                 <p class="null-subtext">Add them here so you can keep track of all the ones you're reading and have read!</p>
-                <div class="button add-btn">
+                <div class="button add-btn" id="add-btn-null">
                     <p class="new-book">Add Book</p>
                 </div>
             </div>
@@ -62,12 +65,13 @@
                 <div class="button cancel-btn">
                     <p class="cancel">Cancel</p>
                 </div>
-                <div class="button add-confirm-btn">
+                <div class="button confirm-add-btn" id="add-btn-modal">
                     <p class="add-book">Add Book</p>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="app.js"></script>
 </body>
 </html>

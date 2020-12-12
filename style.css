@@ -47,7 +47,7 @@ a{
 .button:hover{
     cursor: pointer;
 }
-.button-top-right{ /* toggle this */
+#add-btn-main{ /* toggle this */
     display: none;
 }
 .new-book::before{
@@ -58,7 +58,6 @@ a{
 
 /* null state */
 .null-state{
-    display: none;
     text-align: center;
     margin: 0 auto;
     margin-top: 10rem;
@@ -310,7 +309,7 @@ input:focus{
     background-color: #F3F3F4;
     color: rgb(48, 49, 51);
 }
-#add-btn-1, #add-btn-2, #add-btn-3{
+#add-btn-main, #add-btn-modal, #add-btn-null{
     background-color: rgb(93, 158, 255);
     color: white;
 }
