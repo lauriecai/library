@@ -96,24 +96,6 @@ a{
     margin: 1.2rem;
     background-color: #F3F3F4;
 }
-@media(max-width: 650px){
-    .card-group{
-        display: block;
-        margin: 0 auto;
-    }
-    .card{
-        width: 32rem;
-        height: 42.6rem;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 2.5rem;
-    }
-}
-@media(min-width: 65px){
-    .card-group{
-        justify-content: start;
-    }
-}
 .status, .modal-status{
     margin-bottom: 1.4rem;
     display: flex;
@@ -312,4 +294,26 @@ input:focus{
 #add-btn-main, #add-btn-modal, #add-btn-null{
     background-color: rgb(93, 158, 255);
     color: white;
+}
+
+@media(max-width: 650px){
+    .card-group{
+        display: block;
+        margin: 0 auto;
+    }
+    .card{
+        width: 32rem;
+        height: 42.6rem;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 2.5rem;
+    }
+    .book-footer{
+        width: 26rem;
+    }
+}
+@media(min-width: 65px){
+    .card-group{
+        justify-content: start;
+    }
 }
