@@ -13,13 +13,7 @@ class UI {
         document.querySelector('.dark-overlay').style.display = 'block';
     }
 
-    static addBook() {
-        // grab inputted values
-        const titleValue = document.querySelector('.titleInput').value;
-        const authorValue = document.querySelector('.authorInput').value;
-        const pagesValue = document.querySelector('.pagesInput').value;
-        console.log({titleValue, authorValue, pagesValue});
-
+    static addBook(book) {
         // create book card
         const card = document.createElement('div');
         card.className = 'card';
@@ -34,10 +28,13 @@ class UI {
             label.textContent = "I've Read This";
         status.appendChild(input);
         status.appendChild(label);
+
         const title = document.createElement('p');
         title.className = 'title';
+
         const author = document.createElement('p');
         author.className = 'author';
+
         const footer = document.createElement('div');
         footer.className = 'book-footer';
             const pages = document.createElement('p');
@@ -56,16 +53,33 @@ class UI {
         // append card to card group
         const cardGroup = document.querySelector('.card-group');
         cardGroup.appendChild(card);
-        // hide null state
-        document.querySelector('.null-state').style.display = 'none';
-        // close modal
-        document.querySelector('.dark-overlay').style.display = 'none';
 
         // populate book info
-        document.querySelector('.title').textContent = titleValue;
-        document.querySelector('.author').textContent = authorValue;
-        document.querySelector('.pages').textContent = pagesValue;
-        document.querySelector('.remove').textContent = 'Remove';
+        title.textContent = book.title;
+        author.textContent = book.author;
+        pages.textContent = book.pages;
+        remove.textContent = 'Remove';
+        if (document.getElementById('read-state').checked == true) {
+            input.checked = true;
+        }
+    }
+
+    static hideNullState() {
+        document.querySelector('.null-state').style.display = 'none';
+        document.getElementById('add-btn-main').style.display = 'inline-block';
+    }
+
+    static dismissModal() {
+        document.querySelector('.dark-overlay').style.display = 'none';
+        document.querySelector('.titleInput').value = '';
+        document.querySelector('.authorInput').value = '';
+        document.querySelector('.pagesInput').value = '';
+    }
+
+    static removeBook(el) {
+        if (el.classList.contains('remove')) {
+            el.parentElement.parentElement.remove();
+        }
     }
 }
 
@@ -77,4 +91,32 @@ Array.from(document.getElementsByClassName('add-btn')).forEach(element => {
 })
 
 // add book button (modal) > confirms book add
-document.getElementById('add-btn-modal').addEventListener('click', UI.addBook);
+document.getElementById('add-btn-modal').addEventListener('click', () => {
+    // grab inputted values
+    const title = document.querySelector('.titleInput').value;
+    const author = document.querySelector('.authorInput').value;
+    const pages = document.querySelector('.pagesInput').value;
+
+    // instantiate new book
+    const book = new Book(title, author, pages);
+
+    // add book
+    UI.addBook(book);
+
+    // dismiss modal
+    UI.dismissModal();
+
+    // dismiss null state
+    UI.hideNullState();
+});
+
+// remove book
+document.querySelector('.card-group').addEventListener('click', e => {
+    // remove book
+    UI.removeBook(e.target);
+
+    // display null state if there are no books
+    if (document.querySelector('.card-group').hasChildNodes == false) {
+        document.querySelector('.null-state').style.display = 'block';
+    }
+})
